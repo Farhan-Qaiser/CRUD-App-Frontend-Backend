@@ -35,6 +35,31 @@ app.post('/users', (req, res) => {
     })
 })
 
+app.put('/users/:id', (req, res) => {
+    const id  = parseInt(req.params.id)
+    const body = req.body
+    const index = users.findIndex(item => item.id === id)
+    if (index !== -1) {
+        const updatedUser = {
+            ...users[index],
+            ...body
+        }
+        users[index] = updatedUser
+        res.status(200).json({
+            message: 'Updated user', data:updatedUser
+        })
+
+    }
+    else {
+        res.status(404).json({
+            message: 'User not found'
+        })
+    }
+
+
+})
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on: http://localhost:${PORT}`)
