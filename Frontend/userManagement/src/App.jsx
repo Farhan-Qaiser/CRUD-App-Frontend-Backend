@@ -45,7 +45,7 @@ function App() {
 
     return (
         <>
-            <h1>CRUD Application</h1>
+            <h1>User Management</h1>
             <input type="text" value={newUser} onChange={(e) => setnewUser(e.target.value)}/>
             <button onClick={addUser}>Add User</button>
 
