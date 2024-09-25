@@ -4,10 +4,14 @@ import axios from 'axios'
 const API_URL = 'hhttp://localhost:3000/users'
 
 function App() {
+
+    const [users, setusers] = useState([]);
+
+
     const fertchUsers = async () => {
         const response = await axios.get(API_URL)
         const content = response.data
-        
+
     }
 
     return (
