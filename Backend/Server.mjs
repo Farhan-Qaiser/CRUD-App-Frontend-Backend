@@ -17,6 +17,12 @@ let users = [
     }
 ]
 
+
+app.get('/users', (req, res) => {
+    res.status(200).json({
+        message: 'Fetched all users', data:users})
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on: http://localhost:${PORT}`)
 })
