@@ -23,6 +23,19 @@ app.get('/users', (req, res) => {
         message: 'Fetched all users', data:users})
 })
 
+app.post('/users', (req, res) => {
+    const body = req.body
+    const newItem = {
+        id:users.length + 1,
+        ...body
+    }
+    users.push(newItem)
+    res.status(201).json({
+        message: 'Created new user', data:newItem
+    })
+})
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on: http://localhost:${PORT}`)
 })
