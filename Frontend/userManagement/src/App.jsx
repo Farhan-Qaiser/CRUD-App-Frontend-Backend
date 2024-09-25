@@ -55,6 +55,15 @@ function App() {
                     <button onClick={() => updatingUserBID(updatedUser.id)}>Update User</button>
                 </div>
             )}
+            <ul>
+                {users.map(user => (
+                    <li key={user.id}>
+                        {user.name}
+                        <button onClick={() => setupdatedUser({id:user.id, name:user.name})}>Edit</button>
+                        <button onClick={() => deleteUser(user.id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
         </>
     )
 }
