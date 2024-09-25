@@ -83,6 +83,8 @@ app.put('/users/:id', (req, res) => {
 })
 
 
+app.use(handleError)
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on: http://localhost:${PORT}`)
