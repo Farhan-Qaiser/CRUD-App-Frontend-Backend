@@ -7,6 +7,7 @@ function App() {
 
     const [users, setusers] = useState([]);
     const [newUser, setnewUser] = useState("");
+    const [updatedUser, setupdatedUser] = useState({id:"",name:''});
 
 
     const fertchUsers = async () => {
@@ -27,6 +28,17 @@ function App() {
         .then(response => {
             setusers([...users, response.data])
             setnewUser("")
+            fertchUsers()
+        }).catch(err => console.log(err))
+    }
+
+    const updatingUserBID = (id) => {
+        axios.put(`${API_URL}/${id}`, {
+            name: updatedUser.name
+        })
+        .then(response => {
+            setusers(users.map(user => user.id === id ? response.data : user))
+            setupdatedUser({id:"",name:""})
             fertchUsers()
         }).catch(err => console.log(err))
     }
