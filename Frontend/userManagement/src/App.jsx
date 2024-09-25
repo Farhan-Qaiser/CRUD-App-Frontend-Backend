@@ -48,6 +48,13 @@ function App() {
             <h1>CRUD Application</h1>
             <input type="text" value={newUser} onChange={(e) => setnewUser(e.target.value)}/>
             <button onClick={addUser}>Add User</button>
+
+            {updatedUser.id && (
+                <div>
+                    <input type="text" value={updatedUser.name} onChange={(e) => setupdatedUser({...updatedUser, name: e.target.value})} placeholder="Update User Name" />
+                    <button onClick={() => updatingUserBID(updatedUser.id)}>Update User</button>
+                </div>
+            )}
         </>
     )
 }
