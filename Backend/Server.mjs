@@ -18,6 +18,13 @@ let users = [
 ]
 
 
+
+const handleError = (err, req,res,next) => {
+    console.log(err)
+    res.status(err.status || 500).json({ message:err.message ||'Something went wrong' ,error:true})
+}
+
+
 app.get('/users', (req, res) => {
     res.status(200).json({
         message: 'Fetched all users', data:users})
