@@ -6,6 +6,7 @@ const API_URL = 'hhttp://localhost:3000/users'
 function App() {
 
     const [users, setusers] = useState([]);
+    const [newUser, setnewUser] = useState("");
 
 
     const fertchUsers = async () => {
@@ -18,6 +19,17 @@ function App() {
         fertchUsers()
     }, []);
 
+
+    const addUser = () => {
+        axios.post(API_URL, {
+            name: newUser,
+        })
+        .then(response => {
+            setusers([...users, response.data])
+            setnewUser("")
+            fertchUsers()
+        }).catch(err => console.log(err))
+    }
 
     return (
         <>
