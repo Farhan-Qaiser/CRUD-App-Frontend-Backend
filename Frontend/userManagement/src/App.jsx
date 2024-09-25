@@ -11,12 +11,18 @@ function App() {
     const fertchUsers = async () => {
         const response = await axios.get(API_URL)
         const content = response.data
-
+        setusers(content.data)
     }
+
+    useEffect(() => {
+        fertchUsers()
+    }, []);
+
 
     return (
         <>
             <h1>CRUD Application</h1>
+            <input type="text" />
         </>
     )
 }
