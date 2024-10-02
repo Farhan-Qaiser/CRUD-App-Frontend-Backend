@@ -4,7 +4,7 @@ import { TextField, Button, Container, List, ListItem, ListItemText, ListItemSec
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const API_URL = 'http://localhost:3000/users';
+const API_URL = 'https://express-vercel-day2.vercel.app/users';
 
 function App() {
     const [users, setUsers] = useState([]);
